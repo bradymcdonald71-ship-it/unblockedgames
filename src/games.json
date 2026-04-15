@@ -1,0 +1,50 @@
+[
+  {
+    "id": "2048",
+    "title": "2048",
+    "description": "Join the numbers and get to the 2048 tile!",
+    "category": "Puzzle",
+    "iframeUrl": "https://play2048.co/",
+    "thumbnail": "https://picsum.photos/seed/2048/400/300"
+  },
+  {
+    "id": "tetris",
+    "title": "Tetris",
+    "description": "The classic block-stacking puzzle game.",
+    "category": "Classic",
+    "iframeUrl": "https://tetris.com/play-tetris",
+    "thumbnail": "https://picsum.photos/seed/tetris/400/300"
+  },
+  {
+    "id": "snake",
+    "title": "Snake",
+    "description": "Eat the apples and grow as long as possible.",
+    "category": "Arcade",
+    "iframeUrl": "https://www.google.com/logos/2010/pacman10-i.html",
+    "thumbnail": "https://picsum.photos/seed/snake/400/300"
+  },
+  {
+    "id": "pacman",
+    "title": "Pac-Man",
+    "description": "Classic arcade game where you eat dots and avoid ghosts.",
+    "category": "Arcade",
+    "iframeUrl": "https://www.google.com/logos/2010/pacman10-i.html",
+    "thumbnail": "https://picsum.photos/seed/pacman/400/300"
+  },
+  {
+    "id": "flappy-bird",
+    "title": "Flappy Bird",
+    "description": "Flap your wings and fly through the pipes.",
+    "category": "Arcade",
+    "iframeUrl": "https://flappybird.io/",
+    "thumbnail": "https://picsum.photos/seed/flappy/400/300"
+  },
+  {
+    "id": "chess",
+    "title": "Chess",
+    "description": "Play the game of kings.",
+    "category": "Strategy",
+    "iframeUrl": "https://www.chess.com/play/computer",
+    "thumbnail": "https://picsum.photos/seed/chess/400/300"
+  }
+]
