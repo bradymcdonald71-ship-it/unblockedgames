@@ -1,18 +1,10 @@
 [
   {
-    "id": "atari-game",
-    "title": "Atari Classic",
-    "description": "A classic arcade experience.",
-    "category": "Arcade",
-    "iframeUrl": "https://www.gstatic.com/atari/embeds/83a60601c213b72fb19c1855fb0c5f26/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.PJsh2cctCQI.O%2Fd%3D1%2Frs%3DAHpOoo_QlMhY2cycn60Rs8eI1WInRwuahw%2Fm%3D__features__&r=631073811",
-    "thumbnail": "https://picsum.photos/seed/atari/400/300"
-  },
-  {
-    "id": "breakout",
-    "title": "Breakout",
-    "description": "The legendary brick-breaking challenge.",
-    "category": "Arcade",
-    "iframeUrl": "https://www.gstatic.com/atari/embeds/83a60601c213b72fb19c1855fb0c5f26/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.PJsh2cctCQI.O%2Fd%3D1%2Frs%3DAHpOoo_QlMhY2cycn60Rs8eI1WInRwuahw%2Fm%3D__features__&r=631073811",
-    "thumbnail": "https://picsum.photos/seed/breakout/400/300"
+    "id": "basket-hoop",
+    "title": "Basket Hoop",
+    "description": "Test your aim and score as many hoops as you can!",
+    "category": "Sports",
+    "iframeUrl": "https://d11jzht7mj96rr.cloudfront.net/games/2024/construct/311/basket-hoop/index-gg.html",
+    "thumbnail": "https://picsum.photos/seed/basketball/400/300"
   }
 ]
