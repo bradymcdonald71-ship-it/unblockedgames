@@ -21,6 +21,28 @@ export default function App() {
     );
   }, [searchQuery, games]);
 
+  const gamesByCategory = useMemo(() => {
+    const grouped = filteredGames.reduce((acc, game) => {
+      const category = game.category || "Unclassified";
+      if (!acc[category]) acc[category] = [];
+      acc[category].push(game);
+      return acc;
+    }, {});
+
+    // Sort categories alphabetically
+    const sortedCategories = Object.keys(grouped).sort();
+    
+    // Sort games within each category alphabetically by title
+    const sortedGrouped = {};
+    sortedCategories.forEach(category => {
+      sortedGrouped[category] = [...grouped[category]].sort((a, b) => 
+        a.title.localeCompare(b.title)
+      );
+    });
+
+    return sortedGrouped;
+  }, [filteredGames]);
+
   const handleGameClick = (game) => {
     setSelectedGame(game);
     setIsModalOpen(true);
@@ -77,13 +99,35 @@ export default function App() {
             </motion.p>
           </section>
 
-          {/* Games Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence mode="popLayout">
-              {filteredGames.map((game) => (
-                <GameCard key={game.id} game={game} onClick={handleGameClick} />
-              ))}
-            </AnimatePresence>
+          {/* Games Grid by Sector */}
+          <div className="space-y-24">
+            {Object.entries(gamesByCategory).map(([category, categoryGames]) => (
+              <section key={category} className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-mono text-accent-gold/50 uppercase tracking-[3px] mb-1.5 flex items-center gap-2">
+                      <div className="w-1 h-1 bg-accent-gold rounded-full" />
+                      Vault Sector
+                    </span>
+                    <h3 className="text-2xl font-serif italic text-accent-gold lowercase tracking-[4px] flex items-center gap-3">
+                      // {category}
+                      <span className="text-[10px] font-mono text-text-secondary not-italic tracking-normal opacity-50 px-2 border border-border-subtle rounded-full">
+                        {categoryGames.length}
+                      </span>
+                    </h3>
+                  </div>
+                  <div className="h-px flex-grow bg-linear-to-r from-border-subtle to-transparent mt-8" />
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                  <AnimatePresence mode="popLayout">
+                    {categoryGames.map((game) => (
+                      <GameCard key={game.id} game={game} onClick={handleGameClick} />
+                    ))}
+                  </AnimatePresence>
+                </div>
+              </section>
+            ))}
           </div>
 
           {filteredGames.length === 0 && (

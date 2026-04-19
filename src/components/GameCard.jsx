@@ -32,8 +32,17 @@ export const GameCard = ({ game, onClick }) => {
         </div>
 
         <CardContent className="p-0 flex-grow">
-          <h3 className="text-lg font-serif text-text-primary mb-1">{game.title}</h3>
-          <p className="text-[12px] text-text-secondary uppercase tracking-wider">{game.category} / Archive Entry</p>
+          <div className="flex flex-col gap-3">
+            <div>
+              <h3 className="text-lg font-serif text-text-primary mb-1">{game.title}</h3>
+              <p className="text-[10px] text-text-secondary uppercase tracking-[2px]">
+                {game.category} / Archive Entry
+              </p>
+            </div>
+            <p className="text-[11px] font-mono text-text-secondary/60 leading-relaxed border-l border-accent-gold/20 pl-3 py-1 line-clamp-2">
+              {game.description}
+            </p>
+          </div>
         </CardContent>
       </Card>
     </motion.div>
