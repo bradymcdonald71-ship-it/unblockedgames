@@ -1,6 +1,13 @@
 {
-  "name": "math 9x9",
-  "description": "A curated collection of unblocked games for instant play.",
-  "requestFramePermissions": [],
+  "name": "ARCANE HUB",
+  "description": "The peak of unblocked gaming. A curated, sorted, and high-performance archive of modern and classic titles.",
+  "requestFramePermissions": [
+    "gamepad",
+    "fullscreen",
+    "pointer-lock",
+    "microphone",
+    "camera",
+    "geolocation"
+  ],
   "majorCapabilities": []
 }

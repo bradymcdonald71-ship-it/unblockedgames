@@ -32,6 +32,15 @@
 .gold-badge {
   @apply bg-accent-gold text-bg-deep px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";

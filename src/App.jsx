@@ -51,35 +51,64 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-bg-deep">
       {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-bg-surface border-b border-border-subtle px-10 h-20 flex items-center">
-        <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <h1 className="text-2xl font-serif italic tracking-wider text-accent-gold">
-              ARCANE HUB.
-            </h1>
+      <header className="sticky top-0 z-40 bg-bg-surface/80 backdrop-blur-xl border-b border-border-subtle px-10 h-24 flex items-center">
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-6">
+          <div className="flex items-center gap-3 cursor-pointer group">
+            <div className="h-10 w-10 rounded-lg bg-accent-gold/10 flex items-center justify-center border border-accent-gold/20 group-hover:border-accent-gold/50 transition-all duration-500">
+              <Gamepad2 className="text-accent-gold h-5 w-5" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-serif italic tracking-wider text-accent-gold leading-none">
+                ARCANE HUB
+              </h1>
+              <p className="text-[9px] font-mono text-text-secondary uppercase tracking-[3px] mt-1">Archive_Terminal_v4.2</p>
+            </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-8 text-[13px] uppercase tracking-[2px] font-medium text-text-secondary">
-            <a href="#" className="text-accent-gold">Vault</a>
-            <a href="#" className="hover:text-text-primary transition-colors">Chronicle</a>
-            <a href="#" className="hover:text-text-primary transition-colors">Archive</a>
-            <a href="#" className="hover:text-text-primary transition-colors">Settings</a>
-          </div>
-
-          <div className="relative w-60">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-secondary" />
+          <div className="flex-grow max-w-xl relative group hidden sm:block">
+            <div className="absolute inset-0 bg-accent-gold/5 blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-text-secondary group-focus-within:text-accent-gold transition-colors" />
             <Input
-              placeholder="Find a title..."
-              className="pl-10 h-9 bg-bg-card border-border-subtle text-text-primary text-[13px] rounded-sm focus:border-accent-gold transition-all"
+              placeholder="Query the Archive..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-[#0a0a0b] border-border-subtle rounded-full h-12 pl-11 pr-4 text-sm focus:border-accent-gold transition-all font-mono shadow-inner"
             />
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-6 text-[11px] uppercase tracking-[2px] font-mono text-text-secondary">
+              <span className="text-accent-gold flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-accent-gold rounded-full animate-pulse" />
+                SYSTEM: ONLINE
+              </span>
+            </div>
+            <Github className="text-text-secondary hover:text-accent-gold cursor-pointer transition-colors h-5 w-5" />
           </div>
         </div>
       </header>
 
-      <main className="flex-grow p-10">
+      <main className="flex-grow p-4 sm:p-10">
         <div className="max-w-7xl mx-auto">
+          {/* Category Navigation Pills */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-8 mb-4 no-scrollbar scrollbar-hide">
+            <button 
+              onClick={() => setSearchQuery('')}
+              className={`px-5 py-2 rounded-full text-[10px] font-mono uppercase tracking-widest border transition-all whitespace-nowrap ${searchQuery === '' ? 'bg-accent-gold text-bg-deep border-accent-gold shadow-[0_0_15px_rgba(197,160,89,0.3)]' : 'bg-transparent text-text-secondary border-border-subtle hover:border-accent-gold/40 hover:text-accent-gold'}`}
+            >
+              All_Sectors
+            </button>
+            {Object.keys(gamesByCategory).map(category => (
+              <button
+                key={category}
+                onClick={() => setSearchQuery(category)}
+                className={`px-5 py-2 rounded-full text-[10px] font-mono uppercase tracking-widest border transition-all whitespace-nowrap ${searchQuery.toLowerCase() === category.toLowerCase() ? 'bg-accent-gold text-bg-deep border-accent-gold shadow-[0_0_15px_rgba(197,160,89,0.3)]' : 'bg-transparent text-text-secondary border-border-subtle hover:border-accent-gold/40 hover:text-accent-gold'}`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
           {/* Hero Section */}
           <section className="mb-16 py-12 text-center border-b border-border-subtle">
             <motion.h2 
